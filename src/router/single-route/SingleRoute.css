@@ -1,0 +1,154 @@
+.single-route {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.single-route-image {
+    width: 400px;
+    height: 400px;
+}
+.single-route-swiper img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.single-route-body {
+    width: 60%;
+    min-height: 500px;
+    position: relative;
+    padding-top: 40px;
+}
+
+.single-route-wishlist-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.single-route-wishlist-btn p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #202020;
+}
+.single-route-wishlist-btn p svg {
+    font-size: 20px;
+}
+
+.single-route-title {
+    font-weight: 300;
+    font-size: 28px;
+    margin: 10px 0;
+}
+.single-route-pro-info {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.single-route-pro-info > p {
+    color: #757575;
+}
+.single-route-pro-info > p span {
+    color: #000;
+}
+
+.single-route-pro-count-title {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.single-route-pro-counter {
+    display: flex;
+    border: 1px solid #ddd;
+    width: 120px;
+    height: 40px;
+    border-radius: 3px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.single-route-pro-counter button {
+    width: 50%;
+    height: 100%;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.single-route-pro-counter p {
+    cursor: pointer;
+}
+
+.single-route-pro-count-price {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.single-route-pro-count-price h3 {
+    font-weight: 400;
+}
+.single-route-pro-count-price p {
+    font-size: 13px;
+    color: #757575;
+}
+
+.single-route-pro-count-buy {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.single-route-pro-count-buy button {
+    width: 48%;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid var(--bg-py);
+}
+.single-route-pro-count-buy-blue {
+    background: var(--bg-py);
+    color: #fff;
+}
+.single-route-pro-count-buy-white {
+    background: transparent;
+    color: var(--bg-py);
+}
+
+@media screen and (max-width: 1100px) {
+    .single-route {
+        justify-content: center;
+    }
+    .single-route-image {
+        margin-top: 40px;
+        width: 300px;
+        height: 200px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .single-route-image {
+        margin-top: 40px;
+        height: 400px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .single-route-wishlist-btn > p p {
+        display: none;
+    }
+    .single-route-pro-count-buy {
+        flex-direction: column;
+        height: 100px;
+        gap: 10px;
+    }
+    .single-route-pro-count-buy button {
+        width: 100%;
+        height: 60px;
+    }
+}
