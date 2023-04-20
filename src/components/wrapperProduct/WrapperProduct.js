@@ -1,18 +1,24 @@
 import React from "react";
 import "./WrapperProduct.css";
-import { DATA } from "../../static";
 import { BsCheckLg } from "react-icons/bs";
+import { FiPlus, FiMinus } from "react-icons/fi";
 import { HiOutlineTrash } from "react-icons/hi";
+import { useDispatch } from "react-redux";
+import {
+    addToCart,
+    decFromCart,
+    removeFromCart,
+} from "../../context/action/action";
 
-function WrapperProduct() {
-    const qty = DATA.map((item) => item.price);
+function WrapperProduct({ cart }) {
+    const dispatch = useDispatch();
     return (
         <div className="wrapper-product container">
             <h2 className="wrapper-product-title">
-                Savatingiz, <span>{DATA.length} ta mahsulot</span>
+                Savatingiz, <span>{cart.length} ta mahsulot</span>
             </h2>
             <div className="wrapper-product-cargo">
-                {DATA?.map((item) => (
+                {cart?.map((item) => (
                     <div className="wrapper-product-card" key={item.id}>
                         <div className="wrapper-product-card-date">
                             <p>Hammasini yechish</p>
@@ -32,9 +38,33 @@ function WrapperProduct() {
                                         Sotuvchi: <span>Mukhammedjohn</span>
                                     </p>
                                 </div>
+                                <div className="wrapper-product-card-qty">
+                                    <button
+                                        disabled={item.qty === 1}
+                                        onClick={() =>
+                                            dispatch(decFromCart(item))
+                                        }
+                                    >
+                                        <FiMinus />
+                                    </button>
+                                    <p>{item.qty}</p>
+                                    <button
+                                        onClick={() =>
+                                            dispatch(addToCart(item))
+                                        }
+                                        disabled={item.qty === 9}
+                                    >
+                                        <FiPlus />
+                                    </button>
+                                </div>
                             </div>
                             <div className="wrapper-product-card-product-delete">
-                                <HiOutlineTrash />
+                                <HiOutlineTrash
+                                    onClick={() =>
+                                        dispatch(removeFromCart(item))
+                                    }
+                                />
+                                <p>{item.price * item.qty}</p>
                                 <h3>{item.price}</h3>
                                 <p>
                                     <del>{item.price * 1.2} so'm</del>
@@ -53,20 +83,19 @@ function WrapperProduct() {
                         Buyurtmangizni rasmiy topshirish{" "}
                         <span>punktiga bepul yetkazib beramiz</span>
                     </h3>
-                    <p>
-                        Eshikkacha yetkazib berishgacha yana{" "}
-                        {qty.reduce((a, b) => a + b, 0)}
-                    </p>
+                    <p>Eshikkacha yetkazib berishgacha yana </p>
                 </div>
                 <div className="wrapper-product-order-execute">
                     <h4>Buyurtmangiz</h4>
                     <div>
-                        <p>Mahsulotlar ({DATA.length}) ta:</p>
-                        <p>{qty.reduce((a, b) => a + b, 0)} so'm</p>
+                        <p>Mahsulotlar ({cart.length}) ta:</p>
+                        <p>{cart.reduce((a, b) => a + b.qty, 0)}</p>
                     </div>
                     <div>
                         <p>Jami:</p>
-                        <h3>{qty.reduce((a, b) => a + b, 0)} so'm</h3>
+                        <h3>
+                            {cart.reduce((a, b) => a + b.qty * b.price, 0)} so'm
+                        </h3>
                     </div>
                     <div>
                         <input type="text" placeholder="Ismingiz..." />
