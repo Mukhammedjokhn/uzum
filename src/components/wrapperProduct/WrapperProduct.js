@@ -78,25 +78,25 @@ function WrapperProduct({ cart }) {
                                     <p>
                                         Sotuvchi: <span>Mukhammedjohn</span>
                                     </p>
-                                </div>
-                                <div className="wrapper-product-card-qty">
-                                    <button
-                                        disabled={item.qty === 1}
-                                        onClick={() =>
-                                            dispatch(decFromCart(item))
-                                        }
-                                    >
-                                        <FiMinus />
-                                    </button>
-                                    <p>{item.qty}</p>
-                                    <button
-                                        onClick={() =>
-                                            dispatch(addToCart(item))
-                                        }
-                                        disabled={item.qty === 9}
-                                    >
-                                        <FiPlus />
-                                    </button>
+                                    <div className="wrapper-product-card-qty">
+                                        <button
+                                            disabled={item.qty === 1}
+                                            onClick={() =>
+                                                dispatch(decFromCart(item))
+                                            }
+                                        >
+                                            <FiMinus />
+                                        </button>
+                                        <p>{item.qty}</p>
+                                        <button
+                                            onClick={() =>
+                                                dispatch(addToCart(item))
+                                            }
+                                            disabled={item.qty === 9}
+                                        >
+                                            <FiPlus />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="wrapper-product-card-product-delete">

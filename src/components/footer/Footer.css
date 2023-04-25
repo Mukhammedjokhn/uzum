@@ -1,67 +1,76 @@
 .footer {
-   width: 100%;
-   height: 300px;
-   padding-top: 4%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+    width: 100%;
+    height: 300px;
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .footer-links {
-   display: flex;
-   justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .footer-links li {
-   font-size: 13px;
-   margin-top: 10px;
-   color: #757575;
-   cursor: pointer;
-   transition: 0.2s;
+    font-size: 13px;
+    margin-top: 10px;
+    color: #757575;
+    cursor: pointer;
+    transition: 0.2s;
 }
 .footer-links li:hover {
-   text-decoration: underline;
+    text-decoration: underline;
 }
 .footer-links ul:last-child li {
-   color: #000;
-   font-size: 14px;
-   display: flex;
-   align-items: center;
-   gap: 5px;
+    color: #000;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .footer-links ul:last-child li svg {
-   font-size: 20px;
+    font-size: 20px;
 }
 .footer-links ul:last-child li:hover {
-   text-decoration: none;
+    text-decoration: none;
 }
 .footer-bottom {
-   border-top: 1px solid #ddd;
-   padding-top: 15px;
-   display: flex;
-   justify-content: space-between;
-   padding-bottom: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
 }
 .footer-bottom div:first-child {
-   display: flex;
-   gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 .footer-bottom div:first-child p {
-   font-size: 15px;
-   cursor: pointer;
+    font-size: 15px;
+    cursor: pointer;
 }
 .footer-bottom div:last-child {
-   font-size: 11px;
-   color: #757575;
-   white-space: nowrap;
+    font-size: 11px;
+    color: #757575;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 720px) {
-   .footer-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
-      margin: 0 auto;
-   }
-   .footer-bottom {
-      display: none;
-   }
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    .footer-links ul:nth-child(1),
+    .footer-links ul:nth-child(3) {
+        width: 50%;
+    }
+    .footer-bottom {
+        display: none;
+    }
+}
+@media screen and (max-width: 370px) {
+    .footer {
+        height: 0px;
+        overflow: hidden;
+    }
 }

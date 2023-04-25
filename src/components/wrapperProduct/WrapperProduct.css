@@ -100,6 +100,9 @@
     gap: 40px;
     align-items: center;
 }
+.wrapper-product-card-product-image > div:nth-child(2) {
+    width: 100%;
+}
 .wrapper-product-card-product-image > div:nth-child(2) p:last-child {
     font-size: 14px;
     color: #757575;
@@ -229,7 +232,16 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1050px) {
+    .wrapper-product-card-product-image > div:first-child img {
+        width: 90px;
+    }
+    .wrapper-product-card-product-image > div:nth-child(2) p:first-child {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 980px) {
     .wrapper-product-cargo {
         width: 100%;
     }
@@ -250,19 +262,58 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 605px) {
+    .wrapper-product-card-product {
+        align-items: center;
+    }
     .wrapper-product-card-product-delete {
         height: 100%;
     }
     .wrapper-product-card-date > div > p {
         display: none;
     }
+    .wrapper-product-card-product-image div:nth-child(2) p:nth-child(2) {
+        display: none;
+    }
+    .wrapper-product-card-product-image div:nth-child(2) {
+        gap: 10px;
+    }
+    .wrapper-product-card-product-image > div:nth-child(2) p:first-child {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper-product-card-product {
+        align-items: flex-start;
+    }
     .wrapper-product-card-product-image {
         flex-direction: column;
         align-items: flex-start;
     }
-    .wrapper-product-card-product-image > div:last-child p:first-child {
-        font-size: 14px;
-        line-height: 1.5;
+    .wrapper-product-card-product-image div:nth-child(2) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .wrapper-product-card-product {
+        position: relative;
+    }
+    .wrapper-product-card-product-delete {
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        height: 50%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .wrapper-product-card-product-image div:nth-child(2) p:first-child {
+        font-size: 12px;
+    }
+    .wrapper-product-card-qty {
+        height: 35px;
     }
 }
