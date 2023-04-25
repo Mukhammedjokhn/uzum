@@ -129,6 +129,17 @@
     font-size: 14px;
 }
 
+.nav__have__pro__order {
+    width: 90%;
+    height: 35px;
+    background: var(--bg-py);
+    color: #fff;
+    margin: 10px auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
 .nav__bottom {
     padding: 10px 10px;
     display: flex;

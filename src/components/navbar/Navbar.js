@@ -19,7 +19,7 @@ function Navbar() {
     const cart = useSelector((s) => s.cart);
     const [side, setSide] = useState(false);
     const [pro, setPro] = useState(false);
-    if (pathname === "/login") {
+    if (pathname === "/login" || pathname === "/admin") {
         return <></>;
     }
     return (
@@ -92,10 +92,7 @@ function Navbar() {
                         onMouseLeave={() => setPro(false)}
                     >
                         {cart?.map((item) => (
-                            <div
-                                className="nav__have__pro__card"
-                                key={item.inx}
-                            >
+                            <div className="nav__have__pro__card" key={item.id}>
                                 <img src={item?.url} alt="" />
                                 <div>
                                     {item.title.length > 30
@@ -110,6 +107,9 @@ function Navbar() {
                                 />
                             </div>
                         ))}
+                        <button className="nav__have__pro__order">
+                            Buyurtmani rasmiylashtirish
+                        </button>
                     </div>
                 ) : (
                     <></>

@@ -4,6 +4,7 @@ import {
     ADD_TO_CART,
     REMOVE_FROM_CART,
     DEC_FROM_CART,
+    DELETE_ALL_CART,
 } from "./actionType";
 
 export const addToHeart = (payload) => {
@@ -35,5 +36,11 @@ export const decFromCart = (payload) => {
     return {
         type: DEC_FROM_CART,
         payload,
+    };
+};
+
+export const deleteAllCart = () => {
+    return {
+        type: DELETE_ALL_CART,
     };
 };

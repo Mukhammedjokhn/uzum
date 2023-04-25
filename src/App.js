@@ -9,22 +9,24 @@ import Login from "./router/login/Login";
 import Wishlist from "./router/wishlist/Wishlist";
 import Header from "./components/header/Header";
 import SingleRoute from "./router/single-route/SingleRoute";
+import Admin from "./router/admin/Admin";
 
 function App() {
-   return (
-      <div className="App">
-         <Header />
-         <Navbar />
-         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/product/:id" element={<SingleRoute />} />
-         </Routes>
-         <Footer />
-      </div>
-   );
+    return (
+        <div className="App">
+            <Header />
+            <Navbar />
+            <Routes>
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/product/:id" element={<SingleRoute />} />
+            </Routes>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

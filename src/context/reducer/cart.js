@@ -2,6 +2,7 @@ import {
     ADD_TO_CART,
     REMOVE_FROM_CART,
     DEC_FROM_CART,
+    DELETE_ALL_CART,
 } from "../action/actionType";
 
 const cart = (state = [], action) => {
@@ -21,6 +22,8 @@ const cart = (state = [], action) => {
             );
         case REMOVE_FROM_CART:
             return (state = state.filter((i) => i.id !== action.payload.id));
+        case DELETE_ALL_CART:
+            return (state = []);
         default:
             return state;
     }
