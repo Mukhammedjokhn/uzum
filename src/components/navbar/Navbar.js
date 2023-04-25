@@ -6,14 +6,19 @@ import {
     AiOutlineShoppingCart,
     AiOutlineHome,
 } from "react-icons/ai";
+import { HiOutlineTrash } from "react-icons/hi";
 import { FiX } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { NAVBAR_BOTTOM_DATA } from "../../static";
 import { useLocation } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../context/action/action";
 function Navbar() {
+    const dispatch = useDispatch();
     const { pathname } = useLocation();
+    const cart = useSelector((s) => s.cart);
     const [side, setSide] = useState(false);
+    const [pro, setPro] = useState(false);
     if (pathname === "/login") {
         return <></>;
     }
@@ -65,11 +70,50 @@ function Navbar() {
                         <AiOutlineHeart />
                         <span>Saralangan</span>
                     </NavLink>
-                    <NavLink to={"/cart"} className="nav__link">
+                    <NavLink
+                        to={"/cart"}
+                        className="nav__link nav__cart"
+                        onMouseEnter={
+                            cart.length
+                                ? () => setPro(true)
+                                : () => setPro(false)
+                        }
+                        onMouseLeave={() => setPro(false)}
+                    >
                         <AiOutlineShoppingCart />
                         <span>Savatcha</span>
+                        {cart.length ? <div>{cart.length}</div> : <></>}
                     </NavLink>
                 </div>
+                {pro ? (
+                    <div
+                        className="nav__have__pro"
+                        onMouseEnter={() => setPro(true)}
+                        onMouseLeave={() => setPro(false)}
+                    >
+                        {cart?.map((item) => (
+                            <div
+                                className="nav__have__pro__card"
+                                key={item.inx}
+                            >
+                                <img src={item?.url} alt="" />
+                                <div>
+                                    {item.title.length > 30
+                                        ? `${item.title.slice(0, 30)}...`
+                                        : item.title}
+                                    <h4>{item?.price} so'm</h4>
+                                </div>
+                                <HiOutlineTrash
+                                    onClick={() =>
+                                        dispatch(removeFromCart(item))
+                                    }
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
             <div className="container nav__bottom">
                 {NAVBAR_BOTTOM_DATA?.map((item, inx) => (

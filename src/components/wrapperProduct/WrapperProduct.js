@@ -80,7 +80,7 @@ function WrapperProduct({ cart }) {
                         <BsCheckLg />
                     </div>
                     <h3>
-                        Buyurtmangizni rasmiy topshirish{" "}
+                        Buyurtmangizni rasmiy topshirish
                         <span>punktiga bepul yetkazib beramiz</span>
                     </h3>
                     <p>Eshikkacha yetkazib berishgacha yana </p>

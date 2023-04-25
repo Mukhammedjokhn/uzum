@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     gap: 24px;
+    position: relative;
 }
 
 .nav__katalog-btn {
@@ -51,6 +52,25 @@
     transition: 0.3s;
     border-radius: 5px;
 }
+.nav__cart {
+    position: relative;
+    padding: 0px 20px;
+}
+.nav__cart > div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0px;
+    width: 15px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-py);
+    color: #fff;
+    border-radius: 2px;
+}
 .nav__link:hover {
     background: #eee;
 }
@@ -60,6 +80,55 @@
 .nav__link:first-child {
     display: none;
 }
+.nav__have__pro {
+    width: 35%;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0px 5px 10px #0000016f;
+    position: absolute;
+    right: 0;
+    top: 49px;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.nav__have__pro__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.nav__have__pro__card:hover {
+    background: #efefef;
+}
+.nav__have__pro__card > img {
+    width: 80px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.nav__have__pro__card > svg {
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #757575;
+}
+.nav__have__pro__card > svg:hover {
+    color: #000;
+}
+.nav__have__pro__card > div {
+    flex: 1;
+}
+.nav__have__pro__card > div p {
+    font-size: 14px;
+}
+
 .nav__bottom {
     padding: 10px 10px;
     display: flex;
@@ -140,6 +209,9 @@
     }
     .nav__link span {
         font-size: 12px;
+    }
+    .nav__have__pro {
+        display: none;
     }
 }
 @media screen and (max-width: 600px) {
